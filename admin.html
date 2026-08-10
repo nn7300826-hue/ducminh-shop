@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin - DucMinh Shop</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#080b12;
+    color:white;
+}
+
+header{
+    padding:18px 20px;
+    background:#111722;
+    border-bottom:1px solid #293241;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00d9ff;
+}
+
+.logout{
+    border:0;
+    padding:9px 15px;
+    border-radius:8px;
+    background:#e74c3c;
+    color:white;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.title{
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:28px;
+}
+
+.title p{
+    color:#8f98a8;
+    margin-top:8px;
+}
+
+.form{
+    background:#111722;
+    border:1px solid #293241;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:30px;
+}
+
+.form h2{
+    margin-bottom:20px;
+}
+
+input, textarea{
+    width:100%;
+    margin-bottom:15px;
+    padding:13px;
+    border-radius:8px;
+    border:1px solid #303947;
+    background:#080d15;
+    color:white;
+    outline:none;
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.add{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:8px;
+    background:#00bcd4;
+    color:white;
+    font-weight:bold;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.product{
+    background:#111722;
+    border:1px solid #293241;
+    border-radius:15px;
+    padding:18px;
+}
+
+.product h3{
+    margin-bottom:10px;
+}
+
+.product p{
+    color:#9da5b3;
+    line-height:1.6;
+}
+
+.price{
+    color:#00d9ff !important;
+    font-size:20px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.delete{
+    width:100%;
+    padding:10px;
+    border:0;
+    border-radius:8px;
+    background:#e74c3c;
+    color:white;
+    font-weight:bold;
+}
+
+.empty{
+    color:#777;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Duc<span>Minh</span> Admin
+    </div>
+
+    <button class="logout" onclick="logout()">
+        Đăng xuất
+    </button>
+
+</header>
+
+
+<div class="container">
+
+    <div class="title">
+
+        <h1>📊 Quản lý sản phẩm</h1>
+
+        <p>
+            Thêm và xóa sản phẩm trên trình duyệt này.
+        </p>
+
+    </div>
+
+
+    <div class="form">
+
+        <h2>➕ Thêm sản phẩm</h2>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Tên sản phẩm"
+        >
+
+        <input
+            id="price"
+            type="text"
+            placeholder="Giá, ví dụ: 10.000đ"
+        >
+
+        <textarea
+            id="description"
+            placeholder="Mô tả sản phẩm"
+        ></textarea>
+
+        <button
+            class="add"
+            onclick="addProduct()"
+        >
+            THÊM SẢN PHẨM
+        </button>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="products"
+    ></div>
+
+</div>
+
+
+<script>
+
+let products =
+JSON.parse(
+    localStorage.getItem("products")
+) || [];
+
+
+function showProducts(){
+
+    const box =
+        document.getElementById("products");
+
+    box.innerHTML = "";
+
+    if(products.length === 0){
+
+        box.innerHTML =
+        '<div class="empty">Chưa có sản phẩm.</div>';
+
+        return;
+    }
+
+
+    products.forEach(function(product,index){
+
+        box.innerHTML += `
+
+        <div class="product">
+
+            <h3>${product.name}</h3>
+
+            <p>
+                ${product.description}
+            </p>
+
+            <p class="price">
+                ${product.price}
+            </p>
+
+            <button
+                class="delete"
+                onclick="deleteProduct(${index})"
+            >
+                XÓA
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+function addProduct(){
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const price =
+        document.getElementById("price").value.trim();
+
+    const description =
+        document.getElementById("description").value.trim();
+
+
+    if(!name || !price){
+
+        alert("Vui lòng nhập tên và giá sản phẩm!");
+
+        return;
+    }
+
+
+    products.push({
+
+        name:name,
+
+        price:price,
+
+        description:
+            description || "Chưa có mô tả"
+
+    });
+
+
+    localStorage.setItem(
+        "products",
+        JSON.stringify(products)
+    );
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("description").value = "";
+
+
+    showProducts();
+
+}
+
+
+function deleteProduct(index){
+
+    if(
+        confirm("Bạn có chắc muốn xóa sản phẩm này?")
+    ){
+
+        products.splice(index,1);
+
+        localStorage.setItem(
+            "products",
+            JSON.stringify(products)
+        );
+
+        showProducts();
+
+    }
+
+}
+
+
+function logout(){
+
+    window.location.href = "login.html";
+
+}
+
+
+showProducts();
+
+</script>
+
+</body>
+          </html>
