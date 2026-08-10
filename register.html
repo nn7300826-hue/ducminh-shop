@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Đăng ký - DucMinh Shop</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    background:#080b12;
+    color:white;
+    padding:20px;
+}
+
+.box{
+    width:100%;
+    max-width:400px;
+    padding:30px 25px;
+    background:#111722;
+    border:1px solid #293241;
+    border-radius:18px;
+}
+
+.logo{
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.logo span{
+    color:#00d9ff;
+}
+
+.subtitle{
+    text-align:center;
+    color:#9299a6;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin:14px 0 7px;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border-radius:9px;
+    border:1px solid #303947;
+    background:#080d15;
+    color:white;
+    outline:none;
+}
+
+button{
+    width:100%;
+    margin-top:22px;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:#00bcd4;
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+}
+
+#message{
+    text-align:center;
+    margin-top:15px;
+    line-height:1.5;
+}
+
+.login{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#00d9ff;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="logo">
+        Duc<span>Minh</span> Shop
+    </div>
+
+    <div class="subtitle">
+        👤 Tạo tài khoản mới
+    </div>
+
+    <label>Email</label>
+
+    <input
+        id="email"
+        type="email"
+        placeholder="Nhập email"
+        autocomplete="email"
+    >
+
+    <label>Mật khẩu</label>
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Ít nhất 6 ký tự"
+        autocomplete="new-password"
+    >
+
+    <label>Nhập lại mật khẩu</label>
+
+    <input
+        id="password2"
+        type="password"
+        placeholder="Nhập lại mật khẩu"
+        autocomplete="new-password"
+    >
+
+    <button onclick="register()">
+        TẠO TÀI KHOẢN
+    </button>
+
+    <div id="message"></div>
+
+    <a class="login" href="login.html">
+        Đã có tài khoản? Đăng nhập
+    </a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
+<script>
+
+async function register(){
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const password2 =
+        document.getElementById("password2").value;
+
+    const message =
+        document.getElementById("message");
+
+
+    if(!email || !password || !password2){
+
+        message.innerText =
+            "⚠️ Vui lòng nhập đầy đủ thông tin.";
+
+        return;
+    }
+
+
+    if(password.length < 6){
+
+        message.innerText =
+            "⚠️ Mật khẩu phải có ít nhất 6 ký tự.";
+
+        return;
+    }
+
+
+    if(password !== password2){
+
+        message.innerText =
+            "⚠️ Hai mật khẩu không giống nhau.";
+
+        return;
+    }
+
+
+    message.innerText =
+        "⏳ Đang tạo tài khoản...";
+
+
+    const { error } =
+        await supabaseClient.auth.signUp({
+
+            email: email,
+
+            password: password
+
+        });
+
+
+    if(error){
+
+        message.innerText =
+            "❌ " + error.message;
+
+        return;
+    }
+
+
+    message.innerText =
+        "✅ Đăng ký thành công! Hãy kiểm tra email để xác nhận tài khoản.";
+
+}
+
+</script>
+
+</body>
+  </html>
