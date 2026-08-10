@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Đăng nhập - DucMinh Shop</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    background:#080b12;
+    color:white;
+}
+
+.login-box{
+    width:90%;
+    max-width:400px;
+    padding:35px 25px;
+    background:#111722;
+    border:1px solid #293241;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.logo{
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.logo span{
+    color:#00d9ff;
+}
+
+.subtitle{
+    text-align:center;
+    color:#9299a6;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    margin:15px 0 8px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:9px;
+    border:1px solid #303947;
+    background:#0b1018;
+    color:white;
+    outline:none;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:0;
+    border-radius:9px;
+    background:#00bcd4;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+#message{
+    text-align:center;
+    margin-top:15px;
+    color:#ff6b6b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        Duc<span>Minh</span> Shop
+    </div>
+
+    <div class="subtitle">
+        🔐 Đăng nhập quản trị
+    </div>
+
+    <label>Tài khoản</label>
+
+    <input
+        id="username"
+        type="text"
+        placeholder="Nhập tài khoản"
+    >
+
+    <label>Mật khẩu</label>
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Nhập mật khẩu"
+    >
+
+    <button onclick="login()">
+        ĐĂNG NHẬP
+    </button>
+
+    <div id="message"></div>
+
+</div>
+
+<script>
+
+function login(){
+
+    const username =
+        document.getElementById("username").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    /*
+      Đây chỉ là bản demo giao diện.
+      Không dùng mật khẩu thật ở đây.
+    */
+
+    if(username === "admin" && password === "123456"){
+
+        window.location.href = "admin.html";
+
+    }else{
+
+        document.getElementById("message").innerText =
+        "Sai tài khoản hoặc mật khẩu!";
+
+    }
+}
+
+</script>
+
+</body>
+  </html>
