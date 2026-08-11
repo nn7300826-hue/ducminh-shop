@@ -2,426 +2,327 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DucMinh Shop - Shop Acc Liên Quân</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DucMinh Gaming</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#070a10;
-    color:#fff;
+font-family:Arial,sans-serif;
+background:#070910;
+color:#fff;
 }
 
-/* HEADER */
-
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:14px 6%;
-
-    background:rgba(7,10,16,.92);
-    backdrop-filter:blur(12px);
-
-    border-bottom:1px solid #202735;
+position:sticky;
+top:0;
+z-index:99;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 6%;
+background:rgba(7,9,16,.94);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #20283a;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:800;
+font-size:25px;
+font-weight:900;
+letter-spacing:.5px;
 }
 
-.logo span{
-    color:#00d9ff;
-}
+.logo span{color:#00dcff}
 
 nav{
-    display:flex;
-    gap:22px;
-    align-items:center;
+display:flex;
+gap:12px;
+align-items:center;
 }
 
 nav a{
-    color:#dce2ec;
-    text-decoration:none;
-    font-weight:600;
+color:#dce5f0;
+text-decoration:none;
+padding:10px 14px;
+border-radius:9px;
 }
 
 nav a:hover{
-    color:#00d9ff;
+background:#101a29;
+color:#00dcff;
 }
 
-.login-btn{
-    padding:10px 18px;
-    border-radius:9px;
-
-    background:#00bcd4;
-    color:white!important;
+.login{
+background:#00bcd4;
+color:#fff!important;
+font-weight:bold;
 }
-
-/* HERO */
 
 .hero{
-    min-height:500px;
-
-    display:flex;
-    align-items:center;
-
-    padding:70px 7%;
-
-    background:
-    radial-gradient(circle at 80% 40%,rgba(0,217,255,.20),transparent 35%),
-    radial-gradient(circle at 20% 20%,rgba(115,65,255,.18),transparent 35%);
-
-    border-bottom:1px solid #202735;
+min-height:540px;
+display:flex;
+align-items:center;
+padding:70px 7%;
+background:
+radial-gradient(circle at 85% 35%,rgba(0,217,255,.22),transparent 30%),
+radial-gradient(circle at 20% 20%,rgba(122,58,255,.2),transparent 35%),
+linear-gradient(120deg,#080b13,#0c1220);
 }
 
-.hero-content{
-    max-width:650px;
-}
+.hero-inner{max-width:700px}
 
 .badge{
-    display:inline-block;
-
-    padding:8px 14px;
-
-    border-radius:30px;
-
-    background:rgba(0,217,255,.1);
-    border:1px solid #00bcd4;
-
-    color:#00d9ff;
-
-    margin-bottom:18px;
+display:inline-block;
+padding:8px 14px;
+border:1px solid #00cde9;
+border-radius:30px;
+color:#00dfff;
+background:#00dfff12;
+font-weight:bold;
+margin-bottom:20px;
 }
 
-.hero h1{
-    font-size:52px;
-    line-height:1.1;
-    margin-bottom:20px;
+h1{
+font-size:55px;
+line-height:1.05;
+margin-bottom:20px;
 }
 
-.hero h1 span{
-    color:#00d9ff;
-}
+h1 span{color:#00dcff}
 
 .hero p{
-    color:#aeb7c6;
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:28px;
+font-size:17px;
+line-height:1.7;
+color:#9da9ba;
+margin-bottom:28px;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-
-    padding:13px 22px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-weight:700;
+padding:14px 22px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
 }
 
-.btn-primary{
-    background:#00bcd4;
-    color:white;
+.primary{
+background:#00bcd4;
+color:#fff;
 }
 
-.btn-secondary{
-    border:1px solid #3a4353;
-    color:white;
+.secondary{
+border:1px solid #354153;
+color:#fff;
 }
-
-/* SECTION */
 
 .container{
-    width:88%;
-    max-width:1200px;
-    margin:auto;
+width:88%;
+max-width:1200px;
+margin:auto;
 }
 
-section{
-    padding:55px 0;
+section{padding:55px 0}
+
+.title{
+margin-bottom:25px;
 }
 
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
+.title h2{font-size:31px}
 
-    margin-bottom:25px;
+.title p{
+color:#8994a6;
+margin-top:7px;
 }
-
-.section-title h2{
-    font-size:30px;
-}
-
-.section-title p{
-    color:#8993a4;
-}
-
-/* CATEGORY */
 
 .categories{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
 .category{
-    padding:20px;
-
-    background:#111722;
-
-    border:1px solid #252e3d;
-
-    border-radius:14px;
-
-    transition:.2s;
+padding:22px;
+background:#101520;
+border:1px solid #242e40;
+border-radius:15px;
+transition:.25s;
 }
 
 .category:hover{
-    transform:translateY(-4px);
-    border-color:#00bcd4;
+transform:translateY(-5px);
+border-color:#00cce8;
 }
 
-.category-icon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.category h3{
-    margin-bottom:6px;
+.icon{
+font-size:32px;
+margin-bottom:12px;
 }
 
 .category p{
-    color:#8d96a6;
-    font-size:14px;
+color:#8994a6;
+margin-top:7px;
+font-size:14px;
 }
 
-/* PRODUCTS */
-
 .products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 
 .card{
-    overflow:hidden;
-
-    background:#111722;
-
-    border:1px solid #252e3d;
-
-    border-radius:16px;
-
-    transition:.25s;
+overflow:hidden;
+background:#101520;
+border:1px solid #273144;
+border-radius:17px;
+transition:.25s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:#00bcd4;
-    box-shadow:0 12px 35px rgba(0,188,212,.10);
+transform:translateY(-7px);
+border-color:#00d5ef;
+box-shadow:0 15px 40px #00cce815;
 }
 
-.card-image{
-    position:relative;
-    height:210px;
-
-    overflow:hidden;
-
-    background:
-    linear-gradient(135deg,#151d2b,#071018);
+.photo{
+height:220px;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(135deg,#15243b,#081018);
 }
 
-.card-image img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
 }
 
-.image-placeholder{
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-
-    color:#718096;
+.fallback{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+font-size:44px;
+color:#738095;
 }
 
-.image-placeholder strong{
-    font-size:42px;
-    margin-bottom:8px;
+.fallback small{
+font-size:13px;
+margin-top:8px;
 }
 
 .tag{
-    position:absolute;
-    top:12px;
-    left:12px;
-
-    padding:6px 10px;
-
-    border-radius:7px;
-
-    background:#ff9d00;
-
-    font-size:12px;
-    font-weight:800;
+position:absolute;
+top:12px;
+left:12px;
+z-index:2;
+padding:7px 10px;
+border-radius:7px;
+background:#ff9d00;
+font-size:12px;
+font-weight:900;
 }
 
-.card-body{
-    padding:18px;
-}
+.card-body{padding:19px}
 
 .card-body h3{
-    margin-bottom:8px;
+font-size:20px;
+margin-bottom:9px;
 }
 
-.description{
-    color:#8f99aa;
-    font-size:14px;
-    line-height:1.5;
-
-    min-height:42px;
+.desc{
+color:#909bad;
+font-size:14px;
+line-height:1.55;
+min-height:45px;
 }
 
 .price{
-    color:#00e1ff;
-    font-size:22px;
-    font-weight:800;
-
-    margin:15px 0;
+font-size:23px;
+font-weight:900;
+color:#00dfff;
+margin:15px 0;
 }
 
-.buy-btn{
-    display:block;
-
-    width:100%;
-
-    padding:12px;
-
-    text-align:center;
-
-    border-radius:9px;
-
-    background:#00bcd4;
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:700;
+.detail{
+display:block;
+text-align:center;
+padding:12px;
+border-radius:9px;
+background:#00bcd4;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
 }
 
-/* BENEFITS */
-
-.benefits{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.benefit{
-    text-align:center;
-
-    padding:28px;
-
-    background:#0d121b;
-
-    border-radius:15px;
-
-    border:1px solid #222b38;
+.feature{
+padding:27px;
+background:#0d121b;
+border:1px solid #222c3c;
+border-radius:15px;
+text-align:center;
 }
 
-.benefit-icon{
-    font-size:35px;
-    margin-bottom:12px;
-}
+.feature .icon{font-size:35px}
 
-.benefit p{
-    color:#8993a4;
-    margin-top:7px;
+.feature p{
+color:#8d98aa;
+margin-top:8px;
+line-height:1.5;
 }
-
-/* FOOTER */
 
 footer{
-    padding:35px 7%;
-
-    border-top:1px solid #202735;
-
-    background:#05070b;
-
-    color:#818b9b;
-
-    text-align:center;
+padding:35px;
+text-align:center;
+border-top:1px solid #20283a;
+color:#7f8a9b;
+background:#05070b;
 }
-
-footer strong{
-    color:white;
-}
-
-/* MOBILE */
 
 @media(max-width:850px){
+nav a:not(.login){display:none}
 
-    nav{
-        gap:10px;
-    }
+h1{font-size:39px}
 
-    nav a:not(.login-btn){
-        display:none;
-    }
-
-    .hero{
-        padding:55px 6%;
-        min-height:450px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .categories{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .benefits{
-        grid-template-columns:1fr;
-    }
+.categories{
+grid-template-columns:repeat(2,1fr);
 }
 
+.products{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+}
+
+@media(max-width:500px){
+.categories{
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.category{padding:16px}
+
+.hero{padding:55px 6%}
+}
 </style>
 </head>
 
@@ -429,375 +330,238 @@ footer strong{
 
 <header>
 
-    <div class="logo">
-        Duc<span>Minh</span> Shop
-    </div>
+<div class="logo">
+Duc<span>Minh</span>
+</div>
 
-    <nav>
-
-        <a href="#home">Trang chủ</a>
-
-        <a href="#products">Sản phẩm</a>
-
-        <a href="#contact">Liên hệ</a>
-
-        <a class="login-btn" href="login.html">
-            Đăng nhập
-        </a>
-
-    </nav>
+<nav>
+<a href="#home">Trang chủ</a>
+<a href="#products">Sản phẩm</a>
+<a href="#contact">Liên hệ</a>
+<a class="login" href="login.html">🔐 Đăng nhập</a>
+</nav>
 
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-inner">
 
-        <div class="badge">
-            ⚡ SHOP ACC LIÊN QUÂN
-        </div>
+<div class="badge">
+⚡ DUCMINH GAMING
+</div>
 
-        <h1>
-            Kho acc <span>Liên Quân</span><br>
-            dành cho game thủ
-        </h1>
+<h1>
+Gaming Store<br>
+<span>Liên Quân</span>
+</h1>
 
-        <p>
-            Hệ thống cửa hàng DucMinh Shop.
-            Sản phẩm được phân loại rõ ràng,
-            giao dịch thuận tiện và hỗ trợ khách hàng.
-        </p>
+<p>
+Khám phá bộ sưu tập sản phẩm gaming
+với giao diện hiện đại, tối ưu cho điện thoại
+và máy tính.
+</p>
 
-        <div class="hero-buttons">
+<div class="buttons">
+<a class="btn primary" href="#products">
+🔥 Xem sản phẩm
+</a>
 
-            <a href="#products" class="btn btn-primary">
-                🛒 Xem sản phẩm
-            </a>
-
-            <a href="register.html" class="btn btn-secondary">
-                👤 Tạo tài khoản
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CATEGORY -->
-
-<section>
-
-<div class="container">
-
-    <div class="section-title">
-
-        <div>
-            <h2>Danh mục</h2>
-            <p>Lựa chọn sản phẩm phù hợp</p>
-        </div>
-
-    </div>
-
-
-    <div class="categories">
-
-        <div class="category">
-
-            <div class="category-icon">🔥</div>
-
-            <h3>Acc REG</h3>
-
-            <p>
-                Tài khoản mới với nhiều mức giá
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">💎</div>
-
-            <h3>Acc TTT</h3>
-
-            <p>
-                Tài khoản có nhiều trang phục
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">👑</div>
-
-            <h3>Acc KLK</h3>
-
-            <p>
-                Tài khoản nhiều skin
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">⭐</div>
-
-            <h3>Acc VIP</h3>
-
-            <p>
-                Sản phẩm nổi bật
-            </p>
-
-        </div>
-
-    </div>
+<a class="btn secondary" href="register.html">
+✨ Tạo tài khoản
+</a>
+</div>
 
 </div>
 
 </section>
 
 
-<!-- PRODUCTS -->
+<section>
+
+<div class="container">
+
+<div class="title">
+<h2>Danh mục nổi bật</h2>
+<p>Khám phá các danh mục trong cửa hàng</p>
+</div>
+
+<div class="categories">
+
+<div class="category">
+<div class="icon">🔥</div>
+<h3>REG</h3>
+<p>Sản phẩm phổ biến</p>
+</div>
+
+<div class="category">
+<div class="icon">💎</div>
+<h3>TTT</h3>
+<p>Bộ sưu tập nổi bật</p>
+</div>
+
+<div class="category">
+<div class="icon">👑</div>
+<h3>KLK</h3>
+<p>Sản phẩm cao cấp</p>
+</div>
+
+<div class="category">
+<div class="icon">⭐</div>
+<h3>VIP</h3>
+<p>Sản phẩm đặc biệt</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
 
 <section id="products">
 
 <div class="container">
 
-    <div class="section-title">
-
-        <div>
-
-            <h2>🔥 Sản phẩm nổi bật</h2>
-
-            <p>
-                Những sản phẩm đang được quan tâm
-            </p>
-
-        </div>
-
-    </div>
+<div class="title">
+<h2>🔥 Sản phẩm nổi bật</h2>
+<p>Hình ảnh minh họa — thông tin sản phẩm có thể thay đổi</p>
+</div>
 
 
-    <div class="products">
+<div class="products">
 
 
-        <!-- PRODUCT 1 -->
+<div class="card">
 
-        <div class="card">
+<div class="photo">
 
-            <div class="card-image">
+<span class="tag">HOT</span>
 
-                <span class="tag">
-                    HOT
-                </span>
+<img
+src="https://lienquan.garena.vn/"
+alt="Liên Quân Mobile"
+onerror="this.style.display='none'"
+>
 
-                <img
-                    src="images/acc1.jpg"
-                    alt="Acc Liên Quân"
-                    onerror="this.style.display='none'"
-                >
+<div class="fallback">
+🎮
+<small>Ảnh minh họa</small>
+</div>
 
-                <div class="image-placeholder">
-                    <strong>🎮</strong>
-                    <span>Ảnh sản phẩm</span>
-                </div>
+</div>
 
-            </div>
+<div class="card-body">
 
+<h3>REG COLLECTION</h3>
 
-            <div class="card-body">
+<p class="desc">
+Bộ sưu tập minh họa dành cho danh mục REG.
+</p>
 
-                <h3>
-                    ACC REG TTT KLK
-                </h3>
+<div class="price">10.000đ</div>
 
-                <p class="description">
-                    Acc REG có skin SS theo mô tả sản phẩm.
-                </p>
+<a href="#" class="detail">
+XEM CHI TIẾT
+</a>
 
-                <div class="price">
-                    10.000đ
-                </div>
-
-                <a href="#" class="buy-btn">
-                    Xem chi tiết
-                </a>
-
-            </div>
-
-        </div>
+</div>
+</div>
 
 
-        <!-- PRODUCT 2 -->
+<div class="card">
 
-        <div class="card">
+<div class="photo">
 
-            <div class="card-image">
+<span class="tag">MỚI</span>
 
-                <span class="tag">
-                    MỚI
-                </span>
+<div class="fallback">
+⚔️
+<small>Ảnh minh họa Liên Quân</small>
+</div>
 
-                <img
-                    src="images/acc2.jpg"
-                    alt="Acc Liên Quân"
-                    onerror="this.style.display='none'"
-                >
+</div>
 
-                <div class="image-placeholder">
-                    <strong>⚔️</strong>
-                    <span>Ảnh sản phẩm</span>
-                </div>
+<div class="card-body">
 
-            </div>
+<h3>TTT COLLECTION</h3>
 
+<p class="desc">
+Bộ sưu tập minh họa với phong cách gaming.
+</p>
 
-            <div class="card-body">
+<div class="price">20.000đ</div>
 
-                <h3>
-                    ACC TTT KLK
-                </h3>
+<a href="#" class="detail">
+XEM CHI TIẾT
+</a>
 
-                <p class="description">
-                    Tài khoản nhiều trang phục,
-                    thông tin sản phẩm hiển thị rõ ràng.
-                </p>
-
-                <div class="price">
-                    20.000đ
-                </div>
-
-                <a href="#" class="buy-btn">
-                    Xem chi tiết
-                </a>
-
-            </div>
-
-        </div>
+</div>
+</div>
 
 
-        <!-- PRODUCT 3 -->
+<div class="card">
 
-        <div class="card">
+<div class="photo">
 
-            <div class="card-image">
+<span class="tag">VIP</span>
 
-                <span class="tag">
-                    VIP
-                </span>
+<div class="fallback">
+👑
+<small>Ảnh minh họa Liên Quân</small>
+</div>
 
-                <img
-                    src="images/acc3.jpg"
-                    alt="Acc Liên Quân"
-                    onerror="this.style.display='none'"
-                >
+</div>
 
-                <div class="image-placeholder">
-                    <strong>👑</strong>
-                    <span>Ảnh sản phẩm</span>
-                </div>
+<div class="card-body">
 
-            </div>
+<h3>KLK COLLECTION</h3>
 
+<p class="desc">
+Bộ sưu tập minh họa cao cấp.
+</p>
 
-            <div class="card-body">
+<div class="price">30.000đ</div>
 
-                <h3>
-                    ACC VIP
-                </h3>
+<a href="#" class="detail">
+XEM CHI TIẾT
+</a>
 
-                <p class="description">
-                    Sản phẩm cao cấp với nhiều
-                    trang phục.
-                </p>
-
-                <div class="price">
-                    50.000đ
-                </div>
-
-                <a href="#" class="buy-btn">
-                    Xem chi tiết
-                </a>
-
-            </div>
-
-        </div>
+</div>
+</div>
 
 
-    </div>
-
+</div>
 </div>
 
 </section>
 
 
-<!-- BENEFITS -->
-
 <section>
 
 <div class="container">
 
-    <div class="benefits">
+<div class="features">
 
-        <div class="benefit">
+<div class="feature">
+<div class="icon">🔐</div>
+<h3>Tài khoản</h3>
+<p>Đăng nhập và đăng ký thành viên.</p>
+</div>
 
-            <div class="benefit-icon">
-                🔒
-            </div>
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>Giao diện nhanh</h3>
+<p>Tối ưu cho điện thoại và máy tính.</p>
+</div>
 
-            <h3>
-                An toàn
-            </h3>
+<div class="feature">
+<div class="icon">💬</div>
+<h3>Hỗ trợ</h3>
+<p>Khu vực liên hệ dành cho khách hàng.</p>
+</div>
 
-            <p>
-                Thông tin tài khoản được quản lý
-                trong hệ thống.
-            </p>
-
-        </div>
-
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                ⚡
-            </div>
-
-            <h3>
-                Nhanh chóng
-            </h3>
-
-            <p>
-                Hỗ trợ xử lý đơn hàng nhanh.
-            </p>
-
-        </div>
-
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                💬
-            </div>
-
-            <h3>
-                Hỗ trợ
-            </h3>
-
-            <p>
-                Liên hệ khi cần hỗ trợ.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -806,14 +570,13 @@ footer strong{
 
 <footer id="contact">
 
-    <strong>DucMinh Shop</strong>
+<strong>DucMinh Gaming</strong>
 
-    <br><br>
+<br><br>
 
-    © 2026 DucMinh Shop — All rights reserved.
+© 2026 DucMinh Shop
 
 </footer>
 
-
 </body>
-            </html>
+       </html>
