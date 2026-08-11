@@ -148,78 +148,70 @@ button{
 <script src="supabase-config.js"></script>
 
 <script>
+async function register() {
 
-async function register(){
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const password2 = document.getElementById("password2").value;
+    const message = document.getElementById("message");
 
-    const email =
-        document.getElementById("email").value.trim();
-
-    const password =
-        document.getElementById("password").value;
-
-    const password2 =
-        document.getElementById("password2").value;
-
-    const message =
-        document.getElementById("message");
-
-
-    if(!email || !password || !password2){
-
-        message.innerText =
-            "⚠️ Vui lòng nhập đầy đủ thông tin.";
-
+    if (!email || !password || !password2) {
+        message.innerText = "⚠️ Vui lòng nhập đầy đủ thông tin.";
         return;
     }
 
-
-    if(password.length < 6){
-
-        message.innerText =
-            "⚠️ Mật khẩu phải có ít nhất 6 ký tự.";
-
+    if (password.length < 6) {
+        message.innerText = "⚠️ Mật khẩu phải có ít nhất 6 ký tự.";
         return;
     }
 
-
-    if(password !== password2){
-
-        message.innerText =
-            "⚠️ Hai mật khẩu không giống nhau.";
-
+    if (password !== password2) {
+        message.innerText = "⚠️ Hai mật khẩu không giống nhau.";
         return;
     }
 
+    message.innerText = "⏳ Đang kết nối máy chủ...";
 
-    message.innerText =
-        "⏳ Đang tạo tài khoản...";
+    try {
 
+        const result = await Promise.race([
 
-    const { error } =
-        await supabaseClient.auth.signUp({
+            supabaseClient.auth.signUp({
+                email: email,
+                password: password
+            }),
 
-            email: email,
+            new Promise((_, reject) =>
+                setTimeout(() =>
+                    reject(new Error("Kết nối Supabase quá lâu.")),
+                    15000
+                )
+            )
 
-            password: password
+        ]);
 
-        });
+        const { data, error } = result;
 
+        if (error) {
+            message.innerText = "❌ " + error.message;
+            return;
+        }
 
-    if(error){
+        if (data.user) {
+            message.innerText =
+                "✅ Đăng ký thành công! Hãy kiểm tra email để xác nhận tài khoản.";
+        } else {
+            message.innerText =
+                "⚠️ Không nhận được thông tin tài khoản.";
+        }
+
+    } catch (error) {
 
         message.innerText =
-            "❌ " + error.message;
+            "❌ Lỗi kết nối: " + error.message;
 
-        return;
     }
-
-
-    message.innerText =
-        "✅ Đăng ký thành công! Hãy kiểm tra email để xác nhận tài khoản.";
-
 }
-
 </script>
-
 </body>
   </html>
