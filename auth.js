@@ -1,0 +1,3 @@
+async function shopRegister(username,password){const {data,error}=await supabaseClient.rpc("shop_register",{p_username:username.trim().toLowerCase(),p_password:password});if(error)throw error;return data}
+async function shopLogin(username,password){const {data,error}=await supabaseClient.rpc("shop_login",{p_username:username.trim().toLowerCase(),p_password:password});if(error)throw error;if(data&&data.ok)localStorage.setItem("ducminh_user",JSON.stringify({id:data.id,username:data.username}));return data}
+function shopLogout(){localStorage.removeItem("ducminh_user");location.href="index.html"}
